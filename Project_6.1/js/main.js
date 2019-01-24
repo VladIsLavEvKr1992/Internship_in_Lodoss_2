@@ -1,31 +1,31 @@
 $(document).ready(function () {
-
-	// !!!Beginning maximum sum!!!
 	
-	maximumSum();
+	maximumSum([-1, 10, -9, 5, 6, -10]);
 
-	function maximumSum () {
-		var initialArray = [-1, 10, -9, 5, 6, -10]; // initial array
-		var sum = initialArray[0], maximum = initialArray[0];
-
-		for (let i = 0; i < initialArray.length - 1; i++) {
-			
-			sum = sum + initialArray[i+1];
-				//console.log(sum);
-			if (sum > maximum) {
-				maximum = sum;
-			}
-			
-		}
-		
-		showResult();
-
-		function showResult() {
-			$('.answer-gotten').text(`Gotten answer: ${maximum}.`);
-		}
-		
-	}
-	
-	// !!!Ending maximum sum!!!
+	showResult();
 	
 });
+
+
+var maximum;
+
+function maximumSum(initialArray) {
+	var sum = initialArray[0];
+	
+	maximum = initialArray[0];
+
+	for (let i = 0; i < initialArray.length - 1; i++) {
+		sum = sum + initialArray[i+1];
+		if (sum > maximum) {
+			maximum = sum;
+		}
+	}
+
+	console.log(maximum);
+	return maximum;
+}
+
+
+function showResult() {
+	$('.answer-gotten').text(`Gotten answer: ${maximum}.`);
+}
