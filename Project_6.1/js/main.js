@@ -1,19 +1,16 @@
 $(document).ready(function () {
 	
-	maximumSum([-1, 10, -9, 5, 6, -10]);
+	const currenVariable = maximumSum([-1, 10, -9, 5, 6, -10]);
 
-	showResult();
+	showResult(currenVariable);
 	
 });
 
 
-var maximum;
-
 function maximumSum(initialArray) {
-	var sum = initialArray[0];
+	var maximum = initialArray[0],
+	sum = initialArray[0];
 	
-	maximum = initialArray[0];
-
 	for (let i = 0; i < initialArray.length - 1; i++) {
 		sum = sum + initialArray[i+1];
 		if (sum > maximum) {
@@ -26,6 +23,6 @@ function maximumSum(initialArray) {
 }
 
 
-function showResult() {
-	$('.answer-gotten').text(`Gotten answer: ${maximum}.`);
+function showResult(currenVariable) {
+	$('.answer-gotten').text(`Gotten answer: ${currenVariable}.`);
 }
